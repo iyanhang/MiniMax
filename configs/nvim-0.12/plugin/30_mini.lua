@@ -124,7 +124,26 @@ now(function() require('mini.starter').setup() end)
 -- See also:
 -- - `:h MiniStatusline-example-content` - example of default content. Use it to
 --   configure a custom statusline by setting `config.content.active` function.
-now(function() require('mini.statusline').setup() end)
+-- now(function() require('mini.statusline').setup() end)
+now(function() require('mini.statusline').setup({
+  content = {
+    active = function()
+      local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
+      local location      = MiniStatusline.section_location({ trunc_width = 75 })
+      local search        = MiniStatusline.section_searchcount({ trunc_width = 75 })
+  
+      return MiniStatusline.combine_groups({
+        '%<', -- Mark general truncate point
+        { hl = 'MiniStatuslineFilename', strings = { filename } },
+        '%=', -- End left alignment
+        { hl = 'MiniStatuslineFileinfo', strings = { search } },
+        { hl = 'MiniStatuslineFilename', strings = { location } },
+      })
+    end,
+    inactive = nil,
+  },
+  use_icons = false,
+}) end)
 
 -- Tabline. Sets `:h 'tabline'` to show all listed buffers in a line at the top.
 -- Buffers are ordered as they were created. Navigate with `[b` and `]b`.
@@ -329,7 +348,7 @@ later(function() require('mini.align').setup() end)
 -- It is not enabled by default because its effects are a matter of taste.
 -- Also scroll and resize have some unwanted side effects (see `:h mini.animate`).
 -- Uncomment next line (use `gcc`) to enable.
--- later(function() require('mini.animate').setup() end)
+later(function() require('mini.animate').setup() end)
 
 -- Go forward/backward with square brackets. Implements consistent sets of mappings
 -- for selected targets (like buffers, diagnostic, quickfix list entries, etc.).
@@ -444,7 +463,7 @@ later(function() require('mini.comment').setup() end)
 --
 -- It is not enabled by default because its effects are a matter of taste.
 -- Uncomment next line (use `gcc`) to enable.
--- later(function() require('mini.cursorword').setup() end)
+later(function() require('mini.cursorword').setup() end)
 
 -- Work with diff hunks that represent the difference between the buffer text and
 -- some reference text set by a source. Default source uses text from Git index.
