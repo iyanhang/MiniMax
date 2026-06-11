@@ -2,11 +2,11 @@
   "plugins": {
     "conform.nvim": {
       "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
-      "src": "https://github.com/stevearc/conform.nvim"
+      "src": "https://github.com/iyanhang/conform.nvim"
     },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
-      "src": "https://github.com/rafamadriz/friendly-snippets"
+      "src": "https://github.com/iyanhang/friendly-snippets"
     },
     "mini.nvim": {
       "rev": "9d0b9b7188d5c24b5a87f0d8b383ec8bda7a0de4",
@@ -23,6 +23,10 @@
     "nvim-treesitter-textobjects": {
       "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    },
+    "onedark.nvim": {
+      "rev": "df4792accde9db0043121f32628bcf8e645d9aea",
+      "src": "https://github.com/iyanhang/onedark.nvim"
     }
   }
 }
