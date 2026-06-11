@@ -78,6 +78,7 @@ safely_copy('after/ftplugin/markdown.lua', true) -- Prefer user's existing files
 safely_copy('after/lsp/lua_ls.lua', true)
 safely_copy('after/snippets/lua.json', true)
 safely_copy('snippets/global.json', true)
+safely_copy('colors')
 
 -- Possibly Git init. It is a good practice and helps with root detection.
 if vim.loop.fs_stat(config_dir .. '/.git') == nil then
