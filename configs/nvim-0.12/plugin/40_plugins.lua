@@ -55,6 +55,7 @@ now_if_args(function()
     'lua',
     'vimdoc',
     'markdown',
+    'markdown_inline',
     -- Add here more languages with which you want to use tree-sitter
     -- To see available languages:
     -- - Execute `:=require('nvim-treesitter').get_available()`
@@ -106,6 +107,7 @@ now_if_args(function()
   -- vim.lsp.enable({
   --   -- For example, if `lua-language-server` is installed, use `'lua_ls'` entry
   -- })
+  vim.lsp.enable({ 'clangd', 'ruff' })
 end)
 
 -- Formatting =================================================================
@@ -117,7 +119,7 @@ end)
 -- The 'stevearc/conform.nvim' plugin is a good and maintained solution for easier
 -- formatting setup.
 later(function()
-  add({ 'https://github.com/stevearc/conform.nvim' })
+  add({ 'https://github.com/iyanhang/conform.nvim' })
 
   -- See also:
   -- - `:h Conform`
@@ -143,7 +145,7 @@ end)
 -- snippet files. They are organized in 'snippets/' directory (mostly) per language.
 -- 'mini.snippets' is designed to work with it as seamlessly as possible.
 -- See `:h MiniSnippets.gen_loader.from_lang()`.
-later(function() add({ 'https://github.com/rafamadriz/friendly-snippets' }) end)
+later(function() add({ 'https://github.com/iyanhang/friendly-snippets' }) end)
 
 -- Honorable mentions =========================================================
 
@@ -174,3 +176,8 @@ later(function() add({ 'https://github.com/rafamadriz/friendly-snippets' }) end)
 --   -- Enable only one
 --   vim.cmd('color everforest')
 -- end)
+Config.now(function()
+  add({ 'https://github.com/iyanhang/onedark.nvim' })
+  require('onedark').setup({ style = 'darker' })
+  vim.cmd('color onedark')
+end)
